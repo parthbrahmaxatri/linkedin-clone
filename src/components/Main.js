@@ -83,7 +83,6 @@ const Main = (props) => {
                   <SharedActor>
                     <a>
                       <img src={article.actor.image} alt="" />
-                      {/* <img src="/images/user.svg" alt="" /> */}
                       <div>
                         <span>{article.actor.title}</span>
                         <span>{article.actor.description}</span>
@@ -93,7 +92,8 @@ const Main = (props) => {
                       </div>
                     </a>
                     <button>
-                      <img src="/images/ellipsis.svg" alt="" />
+                      <img src="/images/plus-icon-blue.svg" alt="" />
+                      Follow
                     </button>
                   </SharedActor>
                   <Description>{article.description}</Description>
@@ -152,6 +152,7 @@ const Main = (props) => {
 
 const Container = styled.div`
   grid-area: main;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 `;
 
 const CommonCard = styled.div`
@@ -173,6 +174,10 @@ const PostBox = styled(CommonCard)`
   background: white;
 
   div {
+    img {
+      cursor: pointer;
+    }
+
     button {
       outline: none;
       color: rgba(0, 0, 0, 0.6);
@@ -184,6 +189,7 @@ const PostBox = styled(CommonCard)`
       display: flex;
       align-items: center;
       font-weight: 600;
+      cursor: pointer;
     }
 
     &:first-child {
@@ -205,6 +211,10 @@ const PostBox = styled(CommonCard)`
         border-radius: 35px;
         background-color: white;
         text-align: left;
+
+        &:hover {
+          background-color: rgba(0, 0, 0, 0.08);
+        }
       }
     }
     &:nth-child(2) {
@@ -214,12 +224,14 @@ const PostBox = styled(CommonCard)`
       padding-bottom: 4px;
 
       button {
+        border-radius: 4px;
+
         img {
-          margin: 0 4px 0 -2px;
+          margin: 0 10px 0 -2px;
         }
 
-        span {
-          color: #70b5f9;
+        &:hover {
+          background-color: rgba(0, 0, 0, 0.08);
         }
       }
     }
@@ -237,8 +249,8 @@ const SharedActor = styled.div`
   flex-wrap: nowrap;
   padding: 12px 16px 0;
   margin-bottom: 8px;
-  align-items: center;
   display: flex;
+  align-items: center;
 
   a {
     margin-right: 12px;
@@ -246,10 +258,12 @@ const SharedActor = styled.div`
     overflow: hidden;
     display: flex;
     text-decoration: none;
+    cursor: pointer;
 
     img {
       width: 48px;
       height: 48px;
+      border-radius: 50%;
     }
 
     & > div {
@@ -266,12 +280,18 @@ const SharedActor = styled.div`
         &:first-child {
           font-size: 14px;
           font-weight: 700;
-          color: rgba(0, 0, 0, 1);
+          color: black;
+        }
+        &:first-child:hover {
+          color: #0a66c2;
+          text-decoration: underline;
         }
 
-        &:nth-child(n + 1) {
+        &:nth-child(2),
+        &:nth-child(3) {
           font-size: 12px;
           color: rgba(0, 0, 0, 0.6);
+          margin-top: 3px;
         }
       }
     }
@@ -284,6 +304,21 @@ const SharedActor = styled.div`
     background: transparent;
     border: none;
     outline: none;
+    color: #0a66c2;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    margin-top: 12px;
+    padding: 8px;
+    cursor: pointer;
+    border-radius: 4px;
+
+    img {
+      margin: 0 3px;
+    }
+  }
+  button:hover {
+    background-color: rgba(112, 181, 249, 0.2);
   }
 `;
 
@@ -313,6 +348,7 @@ const SocialCounts = styled.ul`
   line-height: 1.3;
   display: flex;
   align-items: flex-start;
+  justify-content: space-between;
   overflow: auto;
   margin: 0 16px;
   padding: 8px 0;
@@ -327,6 +363,19 @@ const SocialCounts = styled.ul`
       display: flex;
       border: none;
       background-color: white;
+      align-items: center;
+
+      img {
+        width: 15px;
+
+        &:nth-child(2) {
+          margin-right: 3px;
+        }
+      }
+
+      span {
+        font-size: 12px;
+      }
     }
   }
 `;
@@ -334,7 +383,7 @@ const SocialCounts = styled.ul`
 const SocialActions = styled.div`
   align-items: center;
   display: flex;
-  justify-content: flex-start;
+  justify-content: space-around;
   margin: 0;
   min-height: 40px;
   padding: 4px 8px;
@@ -343,12 +392,15 @@ const SocialActions = styled.div`
     display: inline-flex;
     align-items: center;
     padding: 8px;
-    /* color: rgba(0, 0, 0, 0.6); */
-    color: #0a66c2;
     border: none;
     background-color: white;
+    border-radius: 4px;
 
-    @media (min-width: 768px) {
+    &:hover {
+      background-color: rgba(0, 0, 0, 0.08);
+    }
+
+    @media (min-width: 900px) {
       span {
         margin-left: 8px;
       }

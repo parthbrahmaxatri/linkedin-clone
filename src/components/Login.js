@@ -24,7 +24,7 @@ const Login = (props) => {
         <Form>
           <Google onClick={() => props.signIn()}>
             <img src="/images/google.svg" alt="" />
-            Sign in with Google
+            Continue with Google
           </Google>
         </Form>
       </Section>
@@ -34,6 +34,7 @@ const Login = (props) => {
 
 const Container = styled.div`
   padding: 0px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 `;
 
 const Nav = styled.nav`
@@ -46,28 +47,30 @@ const Nav = styled.nav`
   justify-content: space-between;
   flex-wrap: nowrap;
 
-  & > a {
-    width: 135px;
-    height: 34px;
-
-    @media (max-width: 768px) {
-      padding: 0 5px;
-    }
+  & img {
+    width: 90px;
   }
 `;
 
 const Join = styled.a`
   font-size: 16px;
-  padding: 10px 12px;
+  padding: 14px 24px;
   text-decoration: none;
-  border-radius: 4px;
+  border-radius: 24px;
   color: rgba(0, 0, 0, 0.6);
   margin-right: 12px;
+  font-weight: 600;
+  cursor: pointer;
 
   &:hover {
     background-color: rgba(0, 0, 0, 0.08);
     color: rgba(0, 0, 0, 0.9);
     text-decoration: none;
+  }
+
+  @media (max-width: 300px) {
+    font-size: 12px;
+    padding: 7px 12px;
   }
 `;
 
@@ -79,14 +82,20 @@ const SignIn = styled.a`
   font-size: 16px;
   font-weight: 600;
   line-height: 40px;
-  padding: 10px 24px;
+  padding: 14px 24px;
   text-align: center;
   background-color: rgba(0, 0, 0, 0);
+  cursor: pointer;
 
   &:hover {
     background-color: rgba(112, 181, 249, 0.15);
     color: #0a66c2;
     text-decoration: none;
+  }
+
+  @media (max-width: 300px) {
+    font-size: 12px;
+    padding: 7px 12px;
   }
 `;
 
@@ -96,7 +105,7 @@ const Section = styled.section`
   min-height: 700px;
   padding-bottom: 138px;
   padding-top: 40px;
-  padding: 60px 0;
+  padding: 24px 0;
   position: relative;
   flex-wrap: wrap;
   width: 100%;
@@ -104,7 +113,8 @@ const Section = styled.section`
   align-items: center;
   margin: auto;
 
-  @media (max-width: 768px) {
+  @media (max-width: 1000px) {
+    justify-content: center;
     margin: auto;
     min-height: 0px;
   }
@@ -112,19 +122,27 @@ const Section = styled.section`
 
 const Hero = styled.div`
   width: 100%;
+
+  @media (max-width: 1000px) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
   h1 {
     padding-bottom: 0;
     width: 55%;
     font-size: 56px;
     color: #2977c9;
-    font-weight: 200;
-    line-height: 70px;
+    font-weight: 100;
+    /* line-height: 70px; */
+    margin-bottom: 24px;
 
-    @media (max-width: 768px) {
-      text-align: center;
-      font-size: 20px;
+    @media (max-width: 1000px) {
+      /* text-align: center; */
+      font-size: 32px;
       width: 100%;
-      line-height: 2;
+      /* line-height: 2; */
     }
   }
 
@@ -133,12 +151,12 @@ const Hero = styled.div`
     width: 700px;
     height: 670px;
     position: absolute;
-    bottom: -2px;
-    right: -150px;
+    bottom: 25px;
+    right: -125px;
 
-    @media (max-width: 768px) {
+    @media (max-width: 1000px) {
       top: 230px;
-      width: initial;
+      width: 300px;
       position: initial;
       height: initial;
     }
@@ -149,7 +167,7 @@ const Form = styled.div`
   margin-top: 100px;
   width: 408px;
 
-  @media (max-width: 768px) {
+  @media (max-width: 1000px) {
     margin-top: 20px;
   }
 `;
@@ -157,8 +175,8 @@ const Form = styled.div`
 const Google = styled.button`
   display: flex;
   justify-content: center;
-  background-color: #fff;
   align-items: center;
+  background-color: #fff;
   height: 56px;
   width: 100%;
   border-radius: 28px;
@@ -167,12 +185,18 @@ const Google = styled.button`
   vertical-align: middle;
   z-index: 0;
   transition-duration: 167ms;
-  font-size: 20px;
-  color: rgba(0, 0, 0, 0.6);
+  font-size: 16px;
+  font-weight: 600;
+  color: rgba(0, 0, 0, 0.75);
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  cursor: pointer;
 
   &:hover {
     background-color: rgba(207, 207, 207, 0.25);
-    color: rgba(0, 0, 0, 0.75);
+  }
+
+  img {
+    margin: 0 5px;
   }
 `;
 

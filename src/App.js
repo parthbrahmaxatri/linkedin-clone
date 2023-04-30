@@ -3,14 +3,14 @@ import "./App.css";
 import Header from "./components/Header";
 import Home from "./components/Home";
 import Login from "./components/Login";
-// import { useEffect } from "react";
+import { useEffect } from "react";
 import { getUserAuth } from "./actions";
 import { connect } from "react-redux";
 
 function App(props) {
-  // useEffect(() => {
-  //   props.getUserAuth();
-  // }, []);
+  useEffect(() => {
+    props.getUserAuth();
+  }, []);
 
   return (
     <div className="App">

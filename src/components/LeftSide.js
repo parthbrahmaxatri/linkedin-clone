@@ -44,7 +44,7 @@ const LeftSide = (props) => {
           </span>
         </a>
         <a>
-          <span>Follow Hashtags</span>
+          <span>Followed Hashtags</span>
         </a>
         <a>
           <span>Discover more</span>
@@ -56,6 +56,7 @@ const LeftSide = (props) => {
 
 const Container = styled.div`
   grid-area: leftside;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 `;
 
 const ArtCard = styled.div`
@@ -143,6 +144,7 @@ const Widget = styled.div`
 
         &:first-child {
           color: rgba(0, 0, 0, 0.6);
+          font-weight: 600;
         }
 
         &:nth-child(2) {
@@ -164,6 +166,11 @@ const Item = styled.a`
     display: flex;
     align-items: center;
     color: rgba(0, 0, 0, 1);
+    font-weight: 600;
+
+    img {
+      margin-right: 7px;
+    }
   }
   &:hover {
     background-color: rgba(0, 0, 0, 0.08);
@@ -189,6 +196,8 @@ const CommunityCard = styled(ArtCard)`
       display: flex;
       align-items: center;
       justify-content: space-between;
+      color: #0a66c2;
+      font-weight: 600;
     }
 
     &:last-child {

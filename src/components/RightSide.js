@@ -44,6 +44,7 @@ const RightSide = (props) => {
 
 const Container = styled.div`
   grid-area: rightside;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 `;
 
 const FollowCard = styled.div`
@@ -80,6 +81,15 @@ const FeedList = styled.ul`
     & > div {
       display: flex;
       flex-direction: column;
+      cursor: pointer;
+
+      button:hover {
+        background-color: rgba(112, 181, 249, 0.15);
+      }
+
+      span {
+        text-align: start;
+      }
     }
 
     button {
@@ -112,10 +122,19 @@ const Avatar = styled.div`
 `;
 
 const Recommendation = styled.a`
-  color: #0a66c2;
   display: flex;
   align-items: center;
   font-size: 14px;
+  color: rgba(0, 0, 0, 0.6);
+
+  img {
+    margin-left: 5px;
+  }
+
+  &:hover {
+    color: #0a66c2;
+    text-decoration: underline;
+  }
 `;
 
 const BannerCard = styled(FollowCard)`

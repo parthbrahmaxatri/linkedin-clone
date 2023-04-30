@@ -94,11 +94,17 @@ const Container = styled.div`
   background-color: white;
   border-bottom: 1px solid rgba(0, 0, 0, 0.08);
   left: 0;
-  padding: 0 24px;
+  padding: 5px 0;
+
+  @media (max-width: 1000px) {
+    padding: 10px 24px;
+  }
+
   position: fixed;
   top: 0;
   width: 100vw;
   z-index: 100;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 `;
 
 const Content = styled.div`
@@ -126,7 +132,7 @@ const Search = styled.div`
       border: none;
       box-shadow: none;
       background-color: #eef3f8;
-      border-radius: 2px;
+      border-radius: 4px;
       color: rgba(0, 0, 0, 0.9);
       width: 218px;
       padding: 0 8px 0 40px;
@@ -158,7 +164,7 @@ const Nav = styled.nav`
   margin-left: auto;
   display: block;
 
-  @media (max-width: 768px) {
+  @media (max-width: 1000px) {
     position: fixed;
     left: 0;
     bottom: 0;
@@ -204,6 +210,7 @@ const NavList = styled.li`
     min-width: 80px;
     position: relative;
     text-decoration: none;
+    cursor: pointer;
 
     span {
       color: rgba(0, 0, 0, 0.6);
@@ -211,7 +218,7 @@ const NavList = styled.li`
       align-items: center;
     }
 
-    @media (max-width: 768px) {
+    @media (max-width: 1000px) {
       min-width: 70px;
     }
   }
@@ -237,6 +244,10 @@ const SignOut = styled.div`
   transition-duration: 167ms;
   text-align: center;
   display: none;
+
+  a:hover {
+    text-decoration: underline;
+  }
 `;
 
 const User = styled(NavList)`

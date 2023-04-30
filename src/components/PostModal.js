@@ -62,9 +62,11 @@ const PostModal = (props) => {
           <Content>
             <Header>
               <h2>Create a post</h2>
-              <button onClick={(event) => reset(event)}>
-                <img src="/images/close-icon.svg" alt="" />
-              </button>
+              <img
+                src="/images/close-icon.svg"
+                alt=""
+                onClick={(event) => reset(event)}
+              />
             </Header>
             <SharedContent>
               <UserInfo>
@@ -121,18 +123,21 @@ const PostModal = (props) => {
             </SharedContent>
             <SharedCreation>
               <AttachAssets>
-                <AssetButton onClick={() => switchAssetArea("image")}>
-                  <img src="/images/share-image.svg" alt="" />
-                </AssetButton>
-                <AssetButton onClick={() => switchAssetArea("media")}>
-                  <img src="/images/share-video.svg" alt="" />
-                </AssetButton>
+                <img
+                  src="/images/share-image.svg"
+                  alt=""
+                  onClick={() => switchAssetArea("image")}
+                />
+
+                <img
+                  src="/images/share-video.svg"
+                  alt=""
+                  onClick={() => switchAssetArea("media")}
+                />
               </AttachAssets>
               <ShareComment>
-                <AssetButton>
-                  <img src="/images/share-comment.svg" alt="" />
-                  Anyone
-                </AssetButton>
+                <img src="/images/share-comment.svg" alt="" />
+                Anyone
               </ShareComment>
 
               <PostButton
@@ -159,6 +164,7 @@ const Container = styled.div`
   color: black;
   background-color: rgba(0, 0, 0, 0.8);
   animation: fadeIn 0.3s;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 `;
 
 const Content = styled.div`
@@ -177,26 +183,27 @@ const Content = styled.div`
 
 const Header = styled.div`
   display: block;
-  padding: 16px 20px;
+  padding: 12px 24px;
   border-bottom: 1px solid rgba(0, 0, 0, 0.15);
   font-size: 16px;
   line-height: 1.5;
-  color: rgba(0, 0, 0, 0.6);
-  font-weight: 400;
   display: flex;
   justify-content: space-between;
   align-items: center;
 
-  button {
-    height: 40px;
-    width: 40px;
-    min-width: auto;
-    color: rgba(0, 0, 0, 0.15);
+  h2 {
+    font-weight: 400;
+  }
 
-    svg,
-    img {
-      pointer-events: none;
-    }
+  svg,
+  img {
+    cursor: pointer;
+    padding: 5px;
+    border-radius: 50%;
+  }
+
+  img:hover {
+    background-color: rgba(0, 0, 0, 0.15);
   }
 `;
 
@@ -207,7 +214,6 @@ const SharedContent = styled.div`
   overflow-y: auto;
   vertical-align: baseline;
   background: transparent;
-  padding: 8px 12px;
 `;
 
 const UserInfo = styled.div`
@@ -235,45 +241,56 @@ const UserInfo = styled.div`
 const SharedCreation = styled.div`
   display: flex;
   justify-content: space-between;
-  padding: 12px 24px 12px 16px;
-`;
-
-const AssetButton = styled.button`
-  display: flex;
-  align-items: center;
-  height: 40px;
-  min-width: auto;
-  color: rgba(0, 0, 0, 0.5);
+  padding: 12px 24px;
 `;
 
 const AttachAssets = styled.div`
   align-items: center;
   display: flex;
   padding-right: 8px;
-  ${AssetButton} {
-    width: 40px;
+  border-right: 1px solid rgba(0, 0, 0, 0.15);
+
+  img {
+    padding: 5px;
+    border-radius: 50%;
+    margin-right: 3px;
+    cursor: pointer;
+  }
+  img:hover {
+    background-color: rgba(0, 0, 0, 0.15);
   }
 `;
 
 const ShareComment = styled.div`
-  padding-left: 8px;
+  margin-left: 15px;
   margin-right: auto;
-  border-left: 1px solid rgba(0, 0, 0, 0.15);
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  padding: 0 10px 0 5px;
+  border-radius: 15px;
 
-  ${AssetButton} {
-    svg {
-      margin-right: 5px;
-    }
+  img {
+    padding: 5px;
+    border-radius: 50%;
+    margin-right: 3px;
+  }
+
+  &:hover {
+    background-color: rgba(0, 0, 0, 0.15);
   }
 `;
 
 const PostButton = styled.button`
   min-width: 60px;
+  border: none;
   border-radius: 20px;
   padding-left: 16px;
   padding-right: 16px;
-  background: ${(props) => (props.disabled ? "rgba(0, 0, 0, 0.8)" : "#0a66c2")};
+  background: ${(props) =>
+    props.disabled ? "rgba(0, 0, 0, 0.14)" : "#0a66c2"};
   color: ${(props) => (props.disabled ? "rgba(1, 1, 1, 0.2)" : "white")};
+  cursor: ${(props) => (props.disabled ? "not-allowed" : "pointer")};
 
   &:hover {
     background: ${(props) =>
@@ -282,12 +299,15 @@ const PostButton = styled.button`
 `;
 
 const Editor = styled.div`
-  padding: 12px 24px;
+  padding: 12px 36px 12px 24px;
 
   textarea {
     width: 100%;
     min-height: 100px;
     resize: none;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    border: none;
+    outline: none;
   }
 
   input {
@@ -295,6 +315,11 @@ const Editor = styled.div`
     height: 35px;
     font-size: 16px;
     margin-bottom: 20px;
+    border: none;
+    outline: none;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 14px;
+    text-align: center;
   }
 `;
 
@@ -303,6 +328,14 @@ const UploadImage = styled.div`
 
   img {
     width: 100%;
+  }
+
+  p {
+    label {
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      font-size: 14px;
+      color: black;
+    }
   }
 `;
 
